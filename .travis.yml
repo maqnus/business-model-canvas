@@ -8,3 +8,13 @@ before_install:
 
 script:
     - docker run -e CI=true maqnus/business-model-canvas npm run test
+
+deploy:
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "business-model-canvas"
+    env: "BusinessModelCanvas-env"
+    bucker_name: "elasticbeanstalk-us-east-2-453125594715"
+    bucker_path: "business-model-canvas"
+    on:
+        branch: master
